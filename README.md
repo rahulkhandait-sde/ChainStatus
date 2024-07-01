@@ -54,7 +54,7 @@ To install and run ChainStatus locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/chainstatus.git
+   https://github.com/rahulkhandait-sde/ChainStatus.git
    cd chainstatus
    ```
 
