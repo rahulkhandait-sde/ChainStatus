@@ -2,27 +2,36 @@ import type { AppProps } from "next/app";
 import {
   ThirdwebProvider,
   coinbaseWallet,
-  embeddedWallet,
   metamaskWallet,
   rainbowWallet,
-  smartWallet,
   trustWallet,
   walletConnect,
 } from "@thirdweb-dev/react";
 import "../styles/globals.css";
-import { lineaSepolia } from "./linea-sepolia-chain";
 
-// This is the chain your dApp will work on.
-// Change this to the chain your app is built for.
-// You can also import additional chains from `@thirdweb-dev/chains` and pass them directly.
-// const activeChain = "ethereum";
+// Assuming Scroll chain configuration needs to be added manually.
+const scrollChain = {
+  id: 534351, // Replace this with the actual Scroll chain ID
+  name: "Scroll",
+  network: "scroll",
+  nativeCurrency: {
+    decimals: 18,
+    name: "Ether",
+    symbol: "ETH",
+  },
+  rpcUrls: {
+    default: "https://sepolia-rpc.scroll.io/", // Replace this with the actual RPC URL for Scroll
+  },
+  blockExplorers: {
+    default: { name: "Scroll Explorer", url: "https://explorer.scroll.io" },
+  },
+};
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThirdwebProvider
       clientId={process.env.NEXT_PUBLIC_TEMPLATE_CLIENT_ID}
-      activeChain={lineaSepolia}
-      //  引入钱包组件
+      activeChain={scrollChain}
       supportedWallets={[
         metamaskWallet(),
         coinbaseWallet(),
